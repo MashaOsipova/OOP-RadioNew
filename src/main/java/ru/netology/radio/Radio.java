@@ -2,58 +2,47 @@ package ru.netology.radio;
 
 public class Radio {
     private final int minFrequency = 0;
-    private final int maxFrequency = 9;
+    private int userMaxFrequency;
     private int currentFrequency;
     private final int minVolume = 0;
-    private final int maxVolume = 10;
+    private final int maxVolume = 100;
     private int currentVolume;
 
-    public void increaseFrequency() {
-        if (currentFrequency < maxFrequency) {
-            currentFrequency = currentFrequency + 1;
-        } else {
-            currentFrequency = minFrequency;
-        }
+    public Radio(int userMaxFrequency) {
+        this.userMaxFrequency = userMaxFrequency;
     }
 
-    public void decreaseFrequency() {
-        if (currentFrequency > minFrequency) {
-            currentFrequency = currentFrequency - 1;
-        } else {
-            currentFrequency = maxFrequency;
-        }
+    public Radio() {
+        this.userMaxFrequency = 9;
+    }
+
+
+    public int getMinFrequency() {
+        return minFrequency;
+    }
+
+    public int getUserMaxFrequency() {
+        return userMaxFrequency;
     }
 
     public int getCurrentFrequency() {
         return currentFrequency;
     }
 
-    public int getMinFrequency() {
-        return minFrequency;
-    }
-
-    public int getMaxFrequency() {
-        return maxFrequency;
-    }
-
     public void setCurrentFrequency(int currentFrequency) {
-        if (currentFrequency > maxFrequency)
+        if (currentFrequency > userMaxFrequency)
             return;
         if (currentFrequency < minFrequency)
             return;
         this.currentFrequency = currentFrequency;
     }
 
-    void increaseVolume() {
-        if (currentVolume < maxVolume) {
-            currentVolume = currentVolume + 1;
-        }
+    public int getMinVolume() {
+        return minVolume;
     }
 
-    void decreaseVolume() {
-        if (currentVolume > minVolume) {
-            currentVolume = currentVolume - 1;
-        }
+    public int getMaxVolume() {
+        return maxVolume;
     }
 
     public int getCurrentVolume() {
@@ -66,5 +55,33 @@ public class Radio {
         if (currentVolume < minVolume)
             return;
         this.currentVolume = currentVolume;
+    }
+
+    public void increaseFrequency() {
+        if (currentFrequency < userMaxFrequency) {
+            currentFrequency = currentFrequency + 1;
+        } else {
+            currentFrequency = minFrequency;
+        }
+    }
+
+    public void decreaseFrequency() {
+        if (currentFrequency > minFrequency) {
+            currentFrequency = currentFrequency - 1;
+        } else {
+            currentFrequency = userMaxFrequency;
+        }
+    }
+
+    void increaseVolume() {
+        if (currentVolume < maxVolume) {
+            currentVolume = currentVolume + 1;
+        }
+    }
+
+    void decreaseVolume() {
+        if (currentVolume > minVolume) {
+            currentVolume = currentVolume - 1;
+        }
     }
 }
