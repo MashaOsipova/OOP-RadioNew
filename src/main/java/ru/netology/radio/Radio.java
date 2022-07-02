@@ -1,6 +1,6 @@
 package ru.netology.radio;
 
-public class Main {
+public class Radio {
 
     private int currentStation;
     private int volume;
