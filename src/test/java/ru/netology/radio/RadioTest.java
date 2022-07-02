@@ -2,11 +2,11 @@ package ru.netology.radio;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Test {
+public class RadioTest {
 
     @org.junit.jupiter.api.Test
     void stationOverLimit() {
-        Main service = new Main();
+        Radio service = new Radio();
         service.setCurrentStation(10);
         assertEquals(0, service.getCurrentStation());
 
@@ -23,7 +23,7 @@ public class Test {
 
     @org.junit.jupiter.api.Test
     void stationButtonWorks() {
-        Main service = new Main();
+        Radio service = new Radio();
         assertEquals(0, service.getCurrentStation());
 
         service.prevButton();
@@ -41,7 +41,7 @@ public class Test {
 
     @org.junit.jupiter.api.Test
     void volumeTest() {
-        Main service = new Main();
+        Radio service = new Radio();
 
         assertEquals(0, service.getVolume());
 
